@@ -1,53 +1,72 @@
 <template>
   <div id="app">
-    <h1>Hello App!</h1>
-    <p>
-      <a v-link="{ path: '/' }">Go Home</a>
+    <div id="tempTopRouter">
+      <a v-link="{ path: '/' }">主页</a>
       <a v-link="{ path: '/rubLesson' }">蹭课</a>
       <a v-link="{ path: '/grades' }">成绩与学分</a>
+    </div>
 
-    </p>
-    <router-view></router-view>
+    <div id="component-container">
+      <router-view></router-view>
+    </div>
+    <div class="copyright">
+      <img src="./assets/logo.png" class="logo">
+      <ul class="copyright-words">
+        <li>版权申明：©2016红岩网校工作站 </li>
+        <li>数据支持：重庆邮电大学教务处 </li>
+      </ul>
+    </div>
   </div>
 </template>
 
-<script>
-import Hello from './components/Hello';
+<!-- normalize.css is not scoped -->
+<style lang="less">
+  @import '../node_modules/normalize.css';
 
-export default {
-  components: {
-    Hello,
-  },
-};
-</script>
+  html {
+    font-family: Source Sans Pro, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
 
-<style>
-html {
-  height: 100%;
-}
+  html, body {
+    height: 100%;
+  }
+  a {
+    text-decoration: none;
+    color: #000;
+  }
 
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
+  #app {
+    width: 100%;
+  }
 
-#app {
-  color: #2c3e50;
-  margin-top: -100px;
-  max-width: 600px;
-  font-family: Source Sans Pro, Helvetica, sans-serif;
-  text-align: center;
-}
+  #tempTopRouter {
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 30px;
+    a {
+      font-size: 12px;
+    }
+  }
 
-#app a {
-  color: #42b983;
-  text-decoration: none;
-}
+  #component-container {
+    overflow: hidden;
+  }
 
-.logo {
-  width: 100px;
-  height: 100px
-}
+  .copyright {
+    padding: 15px 0;
+    text-align: center;
+    .logo {
+      margin-right: 20px;
+    }
+  }
+  .copyright-words {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 12px;
+    color: #B6B6B6;
+  }
+
 </style>
+
